@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@import './scss/mixins';
+@import './scss/vars';
+
+@font-face {
+    font-family: "Alegreya";
+    src: url("./assets/font/AlegreyaSans-Regular.ttf") format("truetype");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Alegreya;
+}
+
+body{
+    font-size: 16px;
+    background-color: $background-color;
+}
+
+/*--------------------------ciclos---------------------*/
+
+@for $i from 1 to $limit {
+    .p-#{$i} {
+        padding: $i * $unit;
+    }
+}
+
+@for $i from 1 to $limit {
+    .py-#{$i} {
+        padding: $i * $unit 0;
+    }
+}
+
+@for $i from 1 to $limit {
+    .t-#{$i} {
+        padding-top: $i * $unit;
+    }
+}
+
+@for $i from 1 to $limit {
+    .m-#{$i} {
+        margin: $i * $unit;
+    }
+}
+
+@for $i from 1 to $limit {
+    .my-#{$i} {
+        margin: $i * $unit 0;
+    }
+}
+
+@for $i from 1 to $limit {
+    .mt-#{$i} {
+        margin-top: $i * $unit;
+    }
+}
+

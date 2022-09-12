@@ -1,0 +1,41 @@
+<article class="main" [hidden]="!isLoggedin">
+    <section class="head">
+        <h2 class="head__title py-2">Registro Paciente</h2>
+        <div class="head__info">
+            <img class="head__info--img" src="" alt="">
+            <div>
+                <p>{{ loggedinUser }}</p>
+                <p>Vacunas: <strong class="head__info--count">{{vacuna}}</strong></p>
+            </div>
+        </div>
+    </section>
+    <hr class="hr">
+    <section class="body py-2">
+        <form class="form" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="rut">Rut:</label>
+                <input type="number" class="form__input" type="text" value="" placeholder="18765432k" [formControl]="rutCtrl" [(ngModel)]="paciente.rut" name="rut">
+            </div>
+            <div>
+                <label for="nombre">Nombre Completo:</label>
+                <input class="form__input" type="text" value="" placeholder="Nombre Completo" [formControl]="nameCtrl" [(ngModel)]="paciente.nombre" name="nombre">
+            </div>
+            <div>
+                <label for="correo">Correo:</label>
+                <input class="form__input" type="text" value="" placeholder="ejemplo@gmail.com" [formControl]="emailCtrl" [(ngModel)]="paciente.correo" name="correo">
+            </div>
+            <div>
+                <label for="telefono">Teléfono:</label>
+                <input class="form__input" type="text" value="" placeholder="50538254" [formControl]="phoneCtrl" [(ngModel)]="paciente.telefono" name="telefono">
+            </div>
+        
+            <input class="form__btn" [ngClass]="rutCtrl.invalid || nameCtrl.invalid || emailCtrl.invalid || phoneCtrl.invalid ? 'form__btn--inactive':'form__btn--active' "  type="submit" [disabled]="rutCtrl.invalid || nameCtrl.invalid || emailCtrl.invalid || phoneCtrl.invalid" value="Registrar" (click)="confirmMessage=!confirmMessage">
+        </form>
+    </section>
+    <section *ngIf="confirmMessage" class="confirmMessage">
+        <div class="confirmMessage__alert"> 
+            <p> Paciente Registrado</p>
+            <button class="confirmMessage__alert--btn" (click)="refresh()">Aceptar</button>
+        </div>
+    </section>
+</article>

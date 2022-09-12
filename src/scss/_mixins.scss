@@ -1,0 +1,36 @@
+@mixin keyframes($name){
+    @keyframes #{$name} {
+        from {
+            box-shadow: 0rem 0rem $primary-color;
+        }
+        to {
+            box-shadow: $box-shadow;
+        }
+    }
+}
+
+@mixin animationShadown(){
+    box-shadow: $box-shadow;
+    animation-name: shadowAnimation;
+    animation-duration: 0.9s;
+    @include keyframes(shadowAnimation);
+}
+
+@mixin container($color){
+    width: 87%;
+    border-radius: 0.8rem;
+    margin: 2rem auto;
+    background-color: $color;
+    padding: 1.5rem 3rem;
+}
+
+@mixin btn($background-color, $font-color){
+    background-color: $background-color;
+    color: $font-color;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}

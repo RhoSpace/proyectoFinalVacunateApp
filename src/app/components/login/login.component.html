@@ -1,0 +1,21 @@
+<section>
+    <h2>Bienvenido</h2>
+    <article>
+        <img src="" alt="">
+        <form name='loginForm' (submit)="doLogin()">
+            <div> 
+                <label for="rut">Ingrese su Rut:</label>
+                <input type="text" placeholder="12123123k" name="rut" [(ngModel)]="username" required>
+            </div>
+            <div>
+                <label for="password">Contraseña:</label>
+                <input type="password" placeholder="***********" name="password" [(ngModel)]="password" required>
+            </div>
+            <input type="submit" value="Entrar">
+        </form>
+        <div style="color : red" *ngIf='error'>{{error}}</div>
+    </article>
+</section>
+
+
+
