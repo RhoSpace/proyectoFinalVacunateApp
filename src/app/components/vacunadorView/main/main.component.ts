@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/loginService/auth.service';
 import { Paciente } from '../../../models/paciente';
@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
   public paciente: Paciente = new Paciente();
   public vacuna: number = 100;
   public confirmMessage: boolean = false;
+  public auxRutInvalid: string = '';
 
   //Datos para el login
   public isLoggedin: boolean = false;
@@ -53,9 +54,17 @@ export class MainComponent implements OnInit {
   }
 
   guardarPacientes() {
-    this.pacienteService.registrarPaciente(this.paciente).subscribe(dato => {dato},error => (error));
+    this.pacienteService.registrarPaciente(this.paciente).subscribe(
+      dato => (this.confirmMessage = true),
+      error => (console.log((this.auxRutInvalid = "repetido")+error))
+      );
   }
 
   refresh(): void { window.location.reload(); }
+
+  doLogout() {
+    this.authService.logout();
+    this.router.navigateByUrl('login');
+  }
 
 }

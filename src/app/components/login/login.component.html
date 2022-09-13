@@ -1,20 +1,22 @@
-<section>
-    <h2>Bienvenido</h2>
-    <article>
-        <img src="" alt="">
-        <form name='loginForm' (submit)="doLogin()">
-            <div> 
-                <label for="rut">Ingrese su Rut:</label>
-                <input type="text" placeholder="12123123k" name="rut" [(ngModel)]="username" required>
+<section class="login">
+    <h2 class="login__title py-1">Bienvenido</h2>
+    <article class="login__main">
+        <img src="../../../assets/img/logo.png" alt="logo vacunateApp" class="login__main--img">
+        <form name='loginForm' (submit)="doLogin()" class="formAccess">
+            <div class="formAccess__content"> 
+                <label for="rut" class="formAccess__label">Ingrese su Rut:</label>
+                <input type="text" placeholder="12123123k" name="rut" [formControl]="rutLogin" [(ngModel)]="username" class="formAccess__input" required>
             </div>
-            <div>
-                <label for="password">Contraseña:</label>
-                <input type="password" placeholder="***********" name="password" [(ngModel)]="password" required>
+            <div class="formAccess__content">
+                <label for="password" class="formAccess__label">Contraseña:</label>
+                <input type="password" placeholder="***********" name="password" [formControl]="passwordLogin" [(ngModel)]="password" class="formAccess__input" required>
             </div>
-            <input type="submit" value="Entrar">
+            <input type="submit" value="Entrar" class="formAccess__btn" 
+            [ngClass]="rutLogin.invalid || passwordLogin.invalid ? 'formAccess__btn--inactive':'formAccess__btn--active' "  
+            [disabled]="rutLogin.invalid || passwordLogin.invalid">
+            <div class="formAccess__message" *ngIf='error'>{{error}}</div>
         </form>
-        <div style="color : red" *ngIf='error'>{{error}}</div>
-    </article>
+    </article> 
 </section>
 
 

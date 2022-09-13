@@ -8,7 +8,7 @@ import { Paciente } from '../../models/paciente';
 })
 export class PacienteService {
 
-  private urlMicroServicioPaciente = 'http://localhost:8080/api/pacientes';
+  private urlMicroServicioPaciente = 'http://localhost:8181/api/pacientes';
 
   constructor(
     private httpClient: HttpClient

@@ -1,3 +1,10 @@
+<header class="header" [hidden]="!isLoggedin">
+    <nav class="nav">
+        <h1 class="nav__logo">VacunateApp</h1>
+        <button class="nav__btn" (click)=doLogout()>Salir</button>
+    </nav>
+</header>
+
 <article class="main" [hidden]="!isLoggedin">
     <section class="head">
         <h2 class="head__title py-2">Registro Paciente</h2>
@@ -15,6 +22,7 @@
             <div>
                 <label for="rut">Rut:</label>
                 <input type="number" class="form__input" type="text" value="" placeholder="18765432k" [formControl]="rutCtrl" [(ngModel)]="paciente.rut" name="rut">
+                <p *ngIf="auxRutInvalid === 'repetido'" class="form__errorMessage">El rut ingresado ya existe</p>
             </div>
             <div>
                 <label for="nombre">Nombre Completo:</label>
@@ -22,16 +30,19 @@
             </div>
             <div>
                 <label for="correo">Correo:</label>
-                <input class="form__input" type="text" value="" placeholder="ejemplo@gmail.com" [formControl]="emailCtrl" [(ngModel)]="paciente.correo" name="correo">
+                <input class="form__input" type="text" value="" placeholder="ejemplo@gmail.com" [formControl]="emailCtrl" [(ngModel)]="paciente.email" name="correo">
             </div>
             <div>
                 <label for="telefono">Teléfono:</label>
                 <input class="form__input" type="text" value="" placeholder="50538254" [formControl]="phoneCtrl" [(ngModel)]="paciente.telefono" name="telefono">
             </div>
         
-            <input class="form__btn" [ngClass]="rutCtrl.invalid || nameCtrl.invalid || emailCtrl.invalid || phoneCtrl.invalid ? 'form__btn--inactive':'form__btn--active' "  type="submit" [disabled]="rutCtrl.invalid || nameCtrl.invalid || emailCtrl.invalid || phoneCtrl.invalid" value="Registrar" (click)="confirmMessage=!confirmMessage">
+            <input class="form__btn" 
+            [ngClass]="rutCtrl.invalid || nameCtrl.invalid || emailCtrl.invalid || phoneCtrl.invalid ? 'form__btn--inactive':'form__btn--active' "  
+            type="submit" [disabled]="rutCtrl.invalid || nameCtrl.invalid || emailCtrl.invalid || phoneCtrl.invalid" value="Registrar">
         </form>
     </section>
+    
     <section *ngIf="confirmMessage" class="confirmMessage">
         <div class="confirmMessage__alert"> 
             <p> Paciente Registrado</p>

@@ -1,6 +1,33 @@
 @import "../../../../scss/vars";
 @import "../../../../scss/mixins";
 
+.header {
+    @include container($primary-color);
+    @include animationShadown();
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__logo {
+        color: $font-color;
+        cursor: pointer;
+    }
+    &__btn {
+       @include btn($primary-color, $font-color);
+    }
+    &__btn:hover {
+        transition: background-color 0.4s ease, box-shadow 0.6s ease;
+        box-shadow: 6px 6px #0044df;
+        background-color: $secondary-color;
+    }
+    &__btn:focus{
+        background-color: #C35800;
+        box-shadow: none;
+    }
+}
+
 .main {
     @include container($font-color);
     @include animationShadown();
@@ -40,10 +67,14 @@
                 padding: 0.8rem 1rem;
                 margin-top: 0.5rem;
                 border-radius: 0.3rem;
-                //border-bottom: 0.2rem solid $primary-color;
                 background: rgb(220, 220, 220);
                 color: #191919;
                 outline: none;
+            }
+
+            &__errorMessage {
+                color: $secondary-color;
+                font-weight: bold;
             }
 
             &__btn {
