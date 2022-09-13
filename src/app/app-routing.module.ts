@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './components/vacunadorView/main/main.component';
 import { LoginComponent } from './components/login/login.component';
+import { MainComponent } from './components/vacunadorView/main/main.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'vacunadorView', pathMatch: 'full'},
-  {path: 'vacunadorView', component: MainComponent},
-  {path: 'login', component: LoginComponent}
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'vacunadorView', component: MainComponent },
+  // { path: 'vacunadorView', component: MainComponent },
 ]
 
 @NgModule({
