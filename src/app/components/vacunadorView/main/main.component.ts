@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/loginService/auth.service';
-import { Paciente } from '../../../models/paciente';
+import { Paciente } from '../../../models/paciente.model';
 import { PacienteService } from '../../../services/pacienteService/paciente.service';
 
 @Component({
