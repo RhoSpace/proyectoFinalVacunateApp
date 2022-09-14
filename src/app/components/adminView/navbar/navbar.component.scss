@@ -1,0 +1,40 @@
+@import "../../../../scss/vars";
+@import "../../../../scss/mixins";
+
+.header {
+    @include container($primary-color);
+    @include animationShadown();
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__logo {
+        color: $font-color;
+        cursor: pointer;
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        &--link{
+            color: $font-color;
+        }
+        &--link:hover{
+            color: $background-color;
+        }
+        &--btn {
+            @include btn($primary-color, $font-color);
+        }
+        &--btn:hover {
+            transition: background-color 0.4s ease, box-shadow 0.6s ease;
+            box-shadow: 6px 6px #0044df;
+            background-color: $secondary-color;
+        }
+        &--btn:focus {
+            background-color: #c35800;
+            box-shadow: none;
+        }
+    }
+}

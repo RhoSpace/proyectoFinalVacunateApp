@@ -1,1 +1,25 @@
-<p>users works!</p>
+<section [hidden]="!isLoggedin" class="listUser">
+    <h1 class="listUser__title py-2">Administrar Personal Vacunador</h1>
+    <table class="table  table-hover">
+        <thead class="table__head">
+            <tr>
+                <th scope="col" class="table__row">id</th>
+                <th scope="col" class="table__row">nombre</th>
+                <th scope="col" class="table__row">rut</th>
+                <th scope="col" class="table__row">telefono</th>
+                <th scope="col" class="table__row">email</th>
+            </tr>
+        </thead>
+        <tbody class="table__body">
+            <tr *ngFor="let usr of users" (click)="userEdit(usr.id)">
+                <th scope="row">{{usr.id}}</th>
+                <td>{{usr.name}}</td>
+                <td>{{usr.rut}}</td>
+                <td>{{usr.phone}}</td>
+                <td>{{usr.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-primary" (click)="newUser()">Nuevo Vacunador</button>
+</section>

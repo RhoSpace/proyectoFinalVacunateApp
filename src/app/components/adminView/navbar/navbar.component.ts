@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/loginService/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  public isLoggedin: boolean = false;
+  public loggedinUser: string = '';
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private authService: AuthService) { }
+  ngOnInit() {
+    this.isLoggedin = this.authService.isUserLoggedin();
+    this.loggedinUser = this.authService.getLoggedinUser();
+
+    if (!this.isLoggedin) {
+      this.router.navigateByUrl('login');
+    }
   }
 
+  doLogout() {
+    this.authService.logout();
+    this.router.navigateByUrl('login');
+  }
 }

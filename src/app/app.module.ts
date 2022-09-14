@@ -12,12 +12,15 @@ import { MainComponent } from './components/vacunadorView/main/main.component';
 import { HomeComponent } from './components/adminView/home/home.component';
 import { NavbarComponent } from './components/adminView/navbar/navbar.component';
 import { UsersComponent } from './components/adminView/users/users.component';
+import { NewUserComponent } from './components/adminView/users/new-user/new-user.component';
+import { EditUserComponent } from './components/adminView/users/edit-user/edit-user.component';
+import { DeleteUserComponent } from './components/adminView/users/delete-user/delete-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,    
-    MainComponent, HomeComponent, NavbarComponent, UsersComponent, 
+    MainComponent, HomeComponent, NavbarComponent, UsersComponent, NewUserComponent, EditUserComponent, DeleteUserComponent, 
   ],
   imports: [
     BrowserModule,

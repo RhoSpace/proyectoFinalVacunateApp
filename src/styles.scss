@@ -19,6 +19,18 @@ body{
     background-color: $background-color;
 }
 
+
+a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+ul{
+    list-style: none;
+}
+
 /*--------------------------ciclos---------------------*/
 
 @for $i from 1 to $limit {

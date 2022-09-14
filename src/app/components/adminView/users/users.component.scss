@@ -1,0 +1,44 @@
+@import "../../../../scss/vars";
+@import "../../../../scss/mixins";
+
+.listUser {
+    @include container($font-color);
+    @include animationShadown();
+    min-height: 30rem;
+    &__title {
+        color: $primary-color;
+        font-size: 3rem;
+    }
+    .table {
+        background-color: $primary-black;
+        border-radius: 0.2rem;
+        padding: 1rem;
+        color: $font-color;
+        &__head {
+            background-color: $primary-dark;  
+        }
+        &__row{
+            padding: 0.2rem 2rem;
+        }
+    }
+}
+
+/*--------------------------Media Query---------------------*/
+
+@media screen and (max-width: 700px) {
+    .head {
+        display: flex;
+        flex-direction: column-reverse;
+        &__title {
+            font-size: 2.5rem !important;
+        }
+    }
+    .body {
+        .form {
+            display: grid !important;
+            grid-template-columns: 1fr !important ;
+            width: 92.5% !important;
+            gap: 1rem !important;
+        }
+    }
+}
