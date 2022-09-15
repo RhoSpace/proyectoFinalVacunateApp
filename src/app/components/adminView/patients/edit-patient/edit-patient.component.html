@@ -1,0 +1,31 @@
+<section class="editPatient">
+    <h2 class="editPatient__title">Editar Paciente</h2>
+    <hr class="editPatient__hr">
+    <div class="container">
+        <form [formGroup]="editForm" (ngSubmit)="postForm(editForm.value)">
+            <div class="form-group row">
+                <div class="col my-2">
+                    <label for="input1">nombre</label>
+                    <input type="text" class="form-control mt-2" placeholder="name" formControlName="name" />
+                </div>
+                <div class="col my-2">
+                    <label for="input1">Rut</label>
+                    <input type="text" class="form-control mt-2" placeholder="rut" formControlName="rut" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col mt-2">
+                    <label for="input1">telefono</label>
+                    <input type="text" class="form-control mt-2" placeholder="phone" formControlName="phone" />
+                </div>
+                <div class="col mt-2">
+                    <label for="input1">email</label>
+                    <input type="text" class="form-control mt-2" placeholder="email" formControlName="email" />
+                </div>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-primary">editar</button>
+            <button type="button" class="btn btn-danger mx-2" (click)="deletePatient()">Eliminar</button>
+        </form>
+    </div>
+</section>

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  url: String = "https://microservice-vacunateapp-user.herokuapp.com/"
+  url: String = "http://localhost:9090/"
 
   constructor(private http: HttpClient) { }
 
@@ -25,6 +25,17 @@ export class UserService {
   getUniqueUser(id: number): Observable<User> {
     let direction = this.url + "api/users/find/id/?id=" + id;
     return this.http.get<User>(direction);
+  }
+
+  deleteUser(form: User): Observable<User> {
+    let direction = this.url + "api/users/?id=" + form.id;
+    let options= {
+      headers:new HttpHeaders({
+        "Content-Type": "application/json",
+      }),
+      body:form
+    }
+    return this.http.delete<User>(direction, options);
   }
 
   putUser(form: User): Observable<User> {

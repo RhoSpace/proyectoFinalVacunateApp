@@ -1,1 +1,36 @@
-<p>new-user works!</p>
+<section class="newUser">
+  <h2 class="newUser__title">Crear Vacunador</h2>
+  <hr class="newUser__hr">
+  <div class="container">
+    <form [formGroup]="newForm" (ngSubmit)="postForm(newForm.value)">
+      <div class="form-group row">
+        <div class="col-12 my-2">
+          <label for="input1">nombre</label>
+          <input type="text" class="form-control mt-2" placeholder="name" formControlName="name" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col my-2">
+          <label for="input1">Rut</label>
+          <input type="text" class="form-control mt-2" placeholder="rut" formControlName="rut" />
+        </div>
+        <div class="col my-2">
+          <label for="input1">telefono</label>
+          <input type="text" class="form-control mt-2" placeholder="phone" formControlName="phone" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-6 my-2">
+          <label for="input1">email</label>
+          <input type="text" class="form-control mt-2" placeholder="email" formControlName="email" />
+        </div>
+        <div class="col-6 mt-2">
+          <label for="input1">password</label>
+          <input type="text" class="form-control mt-2" placeholder="password" formControlName="password" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-4">Crear</button>
+    </form>
+  </div>
+</section>

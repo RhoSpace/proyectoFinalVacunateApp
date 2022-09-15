@@ -1,7 +1,7 @@
 @import "../../../../../scss/vars";
 @import "../../../../../scss/mixins";
 
-.editUser {
+.editPatient {
     @include container($font-color);
     @include animationShadown();
     min-height: 30rem;
@@ -12,6 +12,7 @@
         font-weight: bold;
     }
     &__hr{
-        @include hr();
+        @include hr()
     }
 }
+

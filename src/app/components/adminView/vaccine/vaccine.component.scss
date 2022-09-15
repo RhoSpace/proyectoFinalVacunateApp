@@ -1,0 +1,39 @@
+@import "../../../../scss/vars";
+@import "../../../../scss/mixins";
+
+.vaccineView {
+    @include container($font-color);
+    @include animationShadown();
+    min-height: 30rem;
+    padding-top: 3rem;
+    &__title {
+        color: $primary-color;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    &__hr {
+        @include hr();
+    }
+    &__info{
+        background-color: $primary-dark;
+        border-radius: 0.5rem;
+        color: $font-color;
+        padding: 1rem 2rem;
+        .infoSpan{
+            color: $secondary-color;
+            font-weight: bold;
+        }
+        &--amount{
+            display: flex;
+            .updateData{
+                display: flex;
+                gap:1rem;
+                flex-direction: column;
+                padding: 1rem 2rem;
+            }
+            .updateBtn{
+                
+            }
+        }
+    }
+}

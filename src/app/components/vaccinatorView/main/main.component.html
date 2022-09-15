@@ -12,7 +12,7 @@
             <img class="head__info--img" src="" alt="">
             <div>
                 <p>{{ loggedinUser }}</p>
-                <p>Vacunas: <strong class="head__info--count">{{vacuna}}</strong></p>
+                <p>Vacunas: <strong class="head__info--count">{{vaccine.amount}}</strong></p>
             </div>
         </div>
     </section>
@@ -21,20 +21,20 @@
         <form class="form" (ngSubmit)="onSubmit()">
             <div>
                 <label for="rut">Rut:</label>
-                <input type="number" class="form__input" type="text" value="" placeholder="18765432k" [formControl]="rutCtrl" [(ngModel)]="paciente.rut" name="rut">
+                <input type="number" class="form__input" type="text" value="" placeholder="18765432k" [formControl]="rutCtrl" [(ngModel)]="patient.rut" name="rut">
                 <p *ngIf="auxRutInvalid === 'repetido'" class="form__errorMessage">El rut ingresado ya existe</p>
             </div>
             <div>
                 <label for="nombre">Nombre Completo:</label>
-                <input class="form__input" type="text" value="" placeholder="Nombre Completo" [formControl]="nameCtrl" [(ngModel)]="paciente.nombre" name="nombre">
+                <input class="form__input" type="text" value="" placeholder="Nombre Completo" [formControl]="nameCtrl" [(ngModel)]="patient.name" name="nombre">
             </div>
             <div>
                 <label for="correo">Correo:</label>
-                <input class="form__input" type="text" value="" placeholder="ejemplo@gmail.com" [formControl]="emailCtrl" [(ngModel)]="paciente.email" name="correo">
+                <input class="form__input" type="text" value="" placeholder="ejemplo@gmail.com" [formControl]="emailCtrl" [(ngModel)]="patient.email" name="correo">
             </div>
             <div>
                 <label for="telefono">Teléfono:</label>
-                <input class="form__input" type="text" value="" placeholder="50538254" [formControl]="phoneCtrl" [(ngModel)]="paciente.telefono" name="telefono">
+                <input class="form__input" type="text" value="" placeholder="50538254" [formControl]="phoneCtrl" [(ngModel)]="patient.phone" name="telefono">
             </div>
         
             <input class="form__btn" 

@@ -1,0 +1,26 @@
+<section [hidden]="!isLoggedin" class="listPatient">
+    <h2 class="listPatient__title py-2">Pacientes Vacunados</h2>
+    <hr class="listPatient__hr">
+    <section class="listPatient__scroll">
+        <table class="table  table-hover">
+            <thead class="table__head">
+                <tr>
+                    <th scope="col" class="table__row" hidden>id</th>
+                    <th scope="col" class="table__row">nombre</th>
+                    <th scope="col" class="table__row">rut</th>
+                    <th scope="col" class="table__row">telefono</th>
+                    <th scope="col" class="table__row">email</th>
+                </tr>
+            </thead>
+            <tbody class="table__body">
+                <tr *ngFor="let patient of patients" (click)="patientEdit(patient.id)" class="table__body--rowSelected">
+                    <th scope="row" hidden>{{patient.id}}</th>
+                    <td>{{patient.name}}</td>
+                    <td>{{patient.rut}}</td>
+                    <td>{{patient.phone}}</td>
+                    <td>{{patient.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</section>

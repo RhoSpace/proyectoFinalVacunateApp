@@ -1,0 +1,15 @@
+<section class="vaccineView">
+    <h2 class="vaccineView__title">Administrar Vacuna</h2>
+    <hr class="vaccineView__hr">
+    <section class="vaccineView__info">
+        <h3>Cantidad Actual: <span class="infoSpan">{{amount}}</span></h3>
+        <div class="vaccineView__info--amount">
+            <div class="updateData">
+                <label for="vaccineTotal">Agregar cantidad al total</label>
+                <input type="number" name="vaccineTotal" [formControl]="vaccineCtrl" [(ngModel)]="vaccine.amount"
+                    required>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="updateVaccine()">Actualizar</button>
+        </div>
+    </section>
+</section>

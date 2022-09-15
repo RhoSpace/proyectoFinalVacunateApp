@@ -1,7 +1,7 @@
 @import "../../../../scss/vars";
 @import "../../../../scss/mixins";
 
-.listUser {
+.listPatient {
     @include container($font-color);
     @include animationShadown();
     min-height: 30rem;

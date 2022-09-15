@@ -1,42 +1,41 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/loginService/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule, FormGroup, FormControl, ReactiveFormsModule, Validator } from '@angular/forms'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { User } from '../../../../models/user.model';
-import { UserService } from '../../../../services/usersService/user.service'
-import { AuthService } from 'src/app/services/loginService/auth.service';
+import { Patient } from '../../../../models/patient.model';
+import { PatientService } from '../../../../services/patientService/patient.service'
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss']
+  selector: 'app-edit-patient',
+  templateUrl: './edit-patient.component.html',
+  styleUrls: ['./edit-patient.component.scss']
 })
-export class EditUserComponent implements OnInit {
+export class EditPatientComponent implements OnInit {
 
   public isLoggedin: boolean = false;
   public loggedinUser: string = '';
 
   constructor(
     private router: Router, private activatedroute: ActivatedRoute,
-    private userService: UserService,
+    private patientService: PatientService,
     private http: HttpClient, private authService: AuthService
   ) { }
 
-  userData: User[] = [];
+  patientData: Patient[] = [];
   editForm: FormGroup = new FormGroup({
     id: new FormControl(''),
     name: new FormControl(''),
     rut: new FormControl(''),
     phone: new FormControl(''),
     email: new FormControl(''),
-    password: new FormControl(''),
-    role: new FormControl(false)
   });
 
   ngOnInit(): void {
 
-    let userid: string | null = this.activatedroute.snapshot.paramMap.get('id');
-    this.userService.getUniqueUser(parseInt(userid!.toString())).subscribe(data => {
+    let patid: string | null = this.activatedroute.snapshot.paramMap.get('id');
+    console.log(patid);
+    this.patientService.getUniquePatient(parseInt(patid!.toString())).subscribe(data => {
       console.log(data)
       this.editForm.setValue({
         id: data.id,
@@ -44,8 +43,6 @@ export class EditUserComponent implements OnInit {
         rut: data.rut,
         phone: data.phone,
         email: data.email,
-        password: data.password,
-        role: data.role
       });
     })
 
@@ -57,15 +54,15 @@ export class EditUserComponent implements OnInit {
     }
   }
 
-  postForm(form: User) {
-    this.userService.putUser(form).subscribe(data => {
+  postForm(form: Patient) {
+    this.patientService.updatePatient(form).subscribe(data => {
       this.backToList();
     })
   }
 
-  deleteUser() {
-    let userData: User  = this.editForm.value;
-    this.userService.deleteUser(userData).subscribe(data =>{
+  deletePatient() {
+    let dataPat: Patient  = this.editForm.value;
+    this.patientService.deletePatient(dataPat).subscribe(data =>{
     })
     setTimeout(() => {
       this.backToList()
@@ -73,7 +70,7 @@ export class EditUserComponent implements OnInit {
   }
 
   backToList() {
-    this.router.navigate(['listUser'])
+    this.router.navigate(['listPatients'])
   }
 
 }

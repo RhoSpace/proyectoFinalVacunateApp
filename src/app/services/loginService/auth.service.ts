@@ -14,7 +14,7 @@ export class AuthService {
 
 	constructor(private http: HttpClient) { }
 	authenticate(username: string, password: string) {
-		return this.http.get(`http://localhost:8080/auth`, {
+		return this.http.get(`http://localhost:9092/auth`, {
 			headers: { authorization: this.createBasicAuthToken(username, password) }
 		}).pipe(map((res) => {
 			this.username = username;
