@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <section class="vaccineView">
     <h2 class="vaccineView__title">Administrar Vacuna</h2>
     <hr class="vaccineView__hr">
@@ -9,7 +10,7 @@
                 <input type="number" name="vaccineTotal" [formControl]="vaccineCtrl" [(ngModel)]="vaccine.amount"
                     required>
             </div>
-            <button type="button" class="btn btn-primary" (click)="updateVaccine()">Actualizar</button>
+            <button type="button" class="btn btn-warning updateBtn" (click)="updateVaccine()">Actualizar</button>
         </div>
     </section>
 </section>

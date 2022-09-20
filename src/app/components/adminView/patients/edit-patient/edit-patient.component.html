@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <section class="editPatient">
     <h2 class="editPatient__title">Editar Paciente</h2>
     <hr class="editPatient__hr">
@@ -25,7 +26,15 @@
             </div>
             <br><br>
             <button type="submit" class="btn btn-primary">editar</button>
-            <button type="button" class="btn btn-danger mx-2" (click)="deletePatient()">Eliminar</button>
+            <button type="button" class="btn btn-danger mx-2" (click)="confirmMessage = !confirmMessage">Eliminar</button>
         </form>
+    </div>
+</section>
+
+<section *ngIf="confirmMessage" class="confirmMessage">
+    <div class="confirmMessage__alert">
+        <p>¿Desea borrar el <strong>Paciente</strong>?</p>
+        <button class="btn btn-danger" (click)="deletePatient()">Aceptar</button>
+        <button class="btn btn-secondary mt-2" (click)="refresh()">Cancelar</button>
     </div>
 </section>

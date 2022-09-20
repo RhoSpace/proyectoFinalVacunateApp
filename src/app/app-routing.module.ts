@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/vaccinatorView/main/main.component';
 import { HomeComponent } from './components/adminView/home/home.component';
-import { NavbarComponent } from './components/adminView/navbar/navbar.component';
 import { UsersComponent } from './components/adminView/users/users.component';
 import { NewUserComponent } from './components/adminView/users/new-user/new-user.component';
 import { EditUserComponent } from './components/adminView/users/edit-user/edit-user.component';
@@ -16,7 +15,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'vacunadorView', component: MainComponent },
-  { path: 'home', component: NavbarComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'listUsers', component: UsersComponent },
   { path: 'newUser', component: NewUserComponent },
   { path: 'editUser/:id', component: EditUserComponent },

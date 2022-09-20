@@ -1,0 +1,35 @@
+@import "../../../../scss/vars";
+@import "../../../../scss/mixins";
+
+//bootstrap problemas h1
+h1{
+    font-weight: bold;
+    line-height: 3rem;
+}
+
+.header {
+    @include container($primary-color);
+    @include animationShadown();
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__logo {
+        color: $font-color;
+        cursor: pointer;
+    }
+    &__btn {
+        @include btn($primary-color, $font-color);
+    }
+    &__btn:hover {
+        transition: background-color 0.4s ease, box-shadow 0.6s ease;
+        box-shadow: 6px 6px #0044df;
+        background-color: $secondary-color;
+    }
+    &__btn:focus {
+        background-color: #c35800;
+        box-shadow: none;
+    }
+}

@@ -15,6 +15,7 @@ export class EditUserComponent implements OnInit {
 
   public isLoggedin: boolean = false;
   public loggedinUser: string = '';
+  public confirmMessage: boolean = false;
 
   constructor(
     private router: Router, private activatedroute: ActivatedRoute,
@@ -64,16 +65,17 @@ export class EditUserComponent implements OnInit {
   }
 
   deleteUser() {
-    let userData: User  = this.editForm.value;
-    this.userService.deleteUser(userData).subscribe(data =>{
-    })
+    let userData: User = this.editForm.value;
+    this.userService.deleteUser(userData).subscribe(data => {})
     setTimeout(() => {
       this.backToList()
-     }, 1500);
+    }, 1500);
   }
 
   backToList() {
-    this.router.navigate(['listUser'])
+    this.router.navigate(['listUsers'])
   }
+
+  refresh(): void { window.location.reload(); }
 
 }

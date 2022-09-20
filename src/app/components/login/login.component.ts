@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 			this.authService.authenticate(this.username, this.password).subscribe((result) => {
 				this.getRol();
 			}, () => {
-				this.error = 'Datos incorrectos/ problemas con la conexión';
+				this.error = 'Datos incorrectos';
 			});
 		} else {
 			this.error = 'Datos incorrectos';

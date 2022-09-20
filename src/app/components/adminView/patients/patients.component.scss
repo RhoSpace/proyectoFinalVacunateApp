@@ -14,6 +14,12 @@
     &__hr{
         @include hr();
     }
+    &__background{
+        background-color: $primary-black;
+        padding: 1rem;
+        border-radius: 0.3rem;
+        min-height: 8rem;
+    }
     &__scroll{
         overflow-x: hidden; 
         overflow-y: scroll;

@@ -1,10 +1,4 @@
-<header class="header" [hidden]="!isLoggedin">
-    <nav class="nav">
-        <h1 class="nav__logo">VacunateApp</h1>
-        <button class="nav__btn" (click)=doLogout()>Salir</button>
-    </nav>
-</header>
-
+<app-head></app-head>
 <article class="main" [hidden]="!isLoggedin">
     <section class="head">
         <h2 class="head__title py-2">Registro Paciente</h2>

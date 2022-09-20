@@ -44,7 +44,7 @@ export class NewUserComponent implements OnInit {
   postForm(form: User) { this.userService.postUser(form).subscribe(data => { this.backToList()}) }
 
   backToList() {
-    this.router.navigate(['listUser'])
+    this.router.navigate(['listUsers'])
   }
 
 }

@@ -4,7 +4,7 @@
         <img src="../../../assets/img/logo.png" alt="logo vacunateApp" class="login__main--img">
         <form name='loginForm' (submit)="doLogin()" class="formAccess">
             <div class="formAccess__content"> 
-                <label for="rut" class="formAccess__label">Ingrese su Rut:</label>
+                <label for="rut" class="formAccess__label">Ingrese su Rut: <span class="formAccess__label--important">(Sin puntos ni guíon)</span></label>
                 <input type="text" placeholder="12123123k" name="rut" [formControl]="rutLogin" [(ngModel)]="username" class="formAccess__input" required>
             </div>
             <div class="formAccess__content">

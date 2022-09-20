@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <section class="editUser">
   <h2 class="editUser__title">Editar Vacunador</h2>
   <hr class="editUser__hr">
@@ -6,49 +7,34 @@
       <div class="form-group row">
         <div class="col mt-2">
           <label for="input1">nombre</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="name"
-            formControlName="name"
-          />
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required />
         </div>
         <div class="col mt-2">
           <label for="input1">Rut</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="rut"
-            formControlName="rut"
-          />
+          <input type="text" class="form-control" placeholder="rut" formControlName="rut" required />
         </div>
       </div>
       <div class="form-group row">
         <div class="col mt-4">
           <label for="input1">telefono</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="phone"
-            formControlName="phone"
-          />
+          <input type="text" class="form-control" placeholder="phone" formControlName="phone" required />
         </div>
         <div class="col mt-4">
           <label for="input1">email</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="email"
-            formControlName="email"
-          />
+          <input type="text" class="form-control" placeholder="email" formControlName="email" required />
         </div>
       </div>
       <br><br>
-      <button type="submit" class="btn btn-primary">editar</button>
-      <button type="button" class="btn btn-danger mx-2" (click)="deleteUser()">Eliminar</button>
+      <button type="submit" class="btn btn-primary">Editar</button>
+      <button type="button" class="btn btn-danger mx-2" (click)="confirmMessage = !confirmMessage">Eliminar</button>
     </form>
-    
   </div>
 </section>
 
-  
+<section *ngIf="confirmMessage" class="confirmMessage">
+  <div class="confirmMessage__alert"> 
+      <p>¿Desea borrar el <strong>Vacunador</strong>?</p>
+      <button class="btn btn-danger" (click)="deleteUser()">Aceptar</button>
+      <button class="btn btn-secondary mt-2" (click)="refresh()">Cancelar</button>
+  </div>
+</section>

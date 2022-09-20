@@ -1,6 +1,9 @@
-<p>Llgamos al home</p>
-<p>{{isLoggedin}}</p>
-<p>{{loggedinUser}}</p>
-<p>Estructura del SESSION: sessionStorage.setItem('key', 'value');</p>
-<p>Session no deja guardar un boleean excepto el isLoggedin y un value que puede ser el rut o el nombre</p>
-<p>Como guardar la sesion del admin para que no sea vista por el vacunador</p>
+<app-navbar></app-navbar>
+<section class="homeView">
+    <h2 class="homeView__title">Bienvenido Administrador</h2>
+    <hr class="homeView__hr">
+    <section class="homeView__info">
+        <p>Actualmente tienes <span class="homeView__info--important">{{totalVaccinator}} vacunadores</span></p>
+        <p>y <span class="homeView__info--important">{{totalPatients}} pacientes</span> vacunados</p>
+    </section>
+</section>

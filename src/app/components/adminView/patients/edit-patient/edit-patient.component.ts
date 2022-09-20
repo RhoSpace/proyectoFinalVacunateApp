@@ -15,6 +15,7 @@ export class EditPatientComponent implements OnInit {
 
   public isLoggedin: boolean = false;
   public loggedinUser: string = '';
+  public confirmMessage: boolean = false;
 
   constructor(
     private router: Router, private activatedroute: ActivatedRoute,
@@ -73,4 +74,6 @@ export class EditPatientComponent implements OnInit {
     this.router.navigate(['listPatients'])
   }
 
+  refresh(): void { window.location.reload(); }
+  
 }

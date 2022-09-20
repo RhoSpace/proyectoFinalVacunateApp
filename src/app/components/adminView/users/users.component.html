@@ -1,27 +1,30 @@
+<app-navbar></app-navbar>
 <section [hidden]="!isLoggedin" class="listUser">
     <h2 class="listUser__title py-2">Administrar Personal Vacunador</h2>
     <hr class="listUser__hr">
-    <section class="listUser__scroll">
-        <table class="table  table-hover">
-            <thead class="table__head">
-                <tr>
-                    <th scope="col" class="table__row" hidden>id</th>
-                    <th scope="col" class="table__row">nombre</th>
-                    <th scope="col" class="table__row">rut</th>
-                    <th scope="col" class="table__row">telefono</th>
-                    <th scope="col" class="table__row">email</th>
-                </tr>
-            </thead>
-            <tbody class="table__body">
-                <tr *ngFor="let user of users" (click)="userEdit(user.id)" class="table__body--rowSelected">
-                    <th scope="row" hidden>{{user.id}}</th>
-                    <td>{{user.name}}</td>
-                    <td>{{user.rut}}</td>
-                    <td>{{user.phone}}</td>
-                    <td>{{user.email}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+    <div class="listUser__background">
+        <section class="listUser__scroll">
+            <table class="table  table-hover">
+                <thead class="table__head">
+                    <tr>
+                        <th scope="col" class="table__row" hidden>id</th>
+                        <th scope="col" class="table__row">nombre</th>
+                        <th scope="col" class="table__row">rut</th>
+                        <th scope="col" class="table__row">telefono</th>
+                        <th scope="col" class="table__row">email</th>
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+                    <tr *ngFor="let user of users" (click)="userEdit(user.id)" class="table__body--rowSelected">
+                        <th scope="row" hidden>{{user.id}}</th>
+                        <td>{{user.name}}</td>
+                        <td>{{user.rut}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
     <button type="button" class="btn btn-primary mt-3" (click)="newUser()">Nuevo Vacunador</button>
 </section>

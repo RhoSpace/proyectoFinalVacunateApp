@@ -17,12 +17,13 @@ import { EditUserComponent } from './components/adminView/users/edit-user/edit-u
 import { VaccineComponent } from './components/adminView/vaccine/vaccine.component';
 import { PatientsComponent } from './components/adminView/patients/patients.component';
 import { EditPatientComponent } from './components/adminView/patients/edit-patient/edit-patient.component';
+import { HeadComponent } from './components/vaccinatorView/head/head.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,    
-    MainComponent, HomeComponent, NavbarComponent, UsersComponent, NewUserComponent, EditUserComponent, VaccineComponent, PatientsComponent, EditPatientComponent 
+    MainComponent, HomeComponent, NavbarComponent, UsersComponent, NewUserComponent, EditUserComponent, VaccineComponent, PatientsComponent, EditPatientComponent, HeadComponent 
   ],
   imports: [
     BrowserModule,
